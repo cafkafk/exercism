@@ -1,0 +1,1 @@
+rvalue/""|reverse|join("")
