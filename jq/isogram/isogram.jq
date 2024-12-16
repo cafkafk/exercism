@@ -1,1 +1,1 @@
-"Remove this line and implement your solution" | halt_error
+.phrase|test("(\\w).*\\1"; "i")|not
