@@ -13,7 +13,7 @@ assert_objects_equal() {
 }
 
 @test 'Empty tree' {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    #
 
     run jq -c -f satellite.jq << 'END_INPUT'
         {
@@ -28,7 +28,7 @@ END_INPUT
 }
 
 @test 'Tree with one item' {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
 
     run jq -c -f satellite.jq << 'END_INPUT'
         {
@@ -47,7 +47,7 @@ END_INPUT
 }
 
 @test 'Tree with many items' {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
 
     run jq -c -f satellite.jq << 'END_INPUT'
         {
@@ -74,7 +74,7 @@ END_INPUT
 }
 
 @test 'Reject traversals of different length' {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
 
     run jq -c -f satellite.jq << 'END_INPUT'
         {
@@ -96,7 +96,7 @@ END_INPUT
 }
 
 @test 'Reject inconsistent traversals of same length' {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
 
     run jq -c -f satellite.jq << 'END_INPUT'
         {
@@ -119,7 +119,7 @@ END_INPUT
 }
 
 @test 'Reject traversals with repeated items' {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
 
     run jq -c -f satellite.jq << 'END_INPUT'
         {
