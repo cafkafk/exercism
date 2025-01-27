@@ -10,4 +10,4 @@ if (($1 % 7 == 0)); then
     res+="Plong"
 fi
 
-echo ${res:-$1}
+echo "${res:-$1}"
