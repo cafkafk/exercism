@@ -1,0 +1,23 @@
+{
+  "authors": [
+    "neenjaw"
+  ],
+  "contributors": [
+    "angelikatyborska"
+  ],
+  "files": {
+    "solution": [
+      "lib/lasagna.ex"
+    ],
+    "test": [
+      "test/lasagna_test.exs"
+    ],
+    "exemplar": [
+      ".meta/exemplar.ex"
+    ]
+  },
+  "forked_from": [
+    "csharp/lucians-luscious-lasagna"
+  ],
+  "blurb": "Learn about the basics of Elixir by following a lasagna recipe."
+}
