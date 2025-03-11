@@ -1,0 +1,19 @@
+# dune test
+# OCAMLPARAM: unset
+# Shared cache: enabled-except-user-rules
+# Shared cache location: /home/ces/.cache/dune/db
+# Workspace root: /home/ces/org/src/git/exercism/ocaml/hello-world
+# Auto-detected concurrency: 20
+# Dune context:
+#  { name = "default"
+#  ; kind = "default"
+#  ; profile = Dev
+#  ; merlin = true
+#  ; fdo_target_exe = None
+#  ; build_dir = In_build_dir "default"
+#  ; instrument_with = []
+#  }
+$ /run/current-system/sw/bin/ocamlc.opt -config > /tmp/dune_7af85f_output
+$ (cd _build/default && /run/current-system/sw/bin/ocamldep.opt -modules -impl test.ml) > _build/default/.test.eobjs/test.impl.d
+$ (cd _build/default && /run/current-system/sw/bin/ocamldep.opt -modules -intf hello_world.mli) > _build/default/.test.eobjs/hello_world.intf.d
+$ (cd _build/default && /run/current-system/sw/bin/ocamldep.opt -modules -impl hello_world.ml) > _build/default/.test.eobjs/hello_world.impl.d
