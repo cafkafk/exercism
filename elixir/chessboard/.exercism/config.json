@@ -1,0 +1,20 @@
+{
+  "authors": [
+    "angelikatyborska"
+  ],
+  "contributors": [
+    "neenjaw"
+  ],
+  "files": {
+    "solution": [
+      "lib/chessboard.ex"
+    ],
+    "test": [
+      "test/chessboard_test.exs"
+    ],
+    "exemplar": [
+      ".meta/exemplar.ex"
+    ]
+  },
+  "blurb": "Learn about ranges by generating a chessboard."
+}
