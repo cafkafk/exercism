@@ -19,6 +19,15 @@ defmodule LibraryFees do
   def monday?(datetime), do: Date.day_of_week(datetime) == 1
 
   def calculate_late_fee(checkout, return, rate) do
-    # Please implement the calculate_late_fee/3 function
+    checkout_datetime = datetime_from_string(checkout)
+    return_datetime = datetime_from_string(return)
+
+    return_date = return_date(checkout_datetime)
+
+    if monday?(return_datetime) do
+      (days_late(return_date, return_datetime) * rate * 0.5) |> floor
+    else
+      days_late(return_date, return_datetime) * rate
+    end
   end
 end
