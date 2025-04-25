@@ -38,7 +38,7 @@ defmodule ResistorColorTrio do
   defp unit(r) when r >= @units.gigaohms, do: :gigaohms
   defp unit(r) when r >= @units.megaohms, do: :megaohms
   defp unit(r) when r >= @units.kiloohms, do: :kiloohms
-  defp unit(r), do: :ohms
+  defp unit(_), do: :ohms
 
   defp shorten(n, unit) do
     (n / @units[unit]) |> round()
