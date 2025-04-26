@@ -1,0 +1,23 @@
+{
+  "authors": [
+    "wasamasa"
+  ],
+  "contributors": [
+    "vermiculus",
+    "yurrriq"
+  ],
+  "files": {
+    "solution": [
+      "acronym.el"
+    ],
+    "test": [
+      "acronym-test.el"
+    ],
+    "example": [
+      ".meta/example.el"
+    ]
+  },
+  "blurb": "Convert a long phrase to its acronym.",
+  "source": "Julien Vanier",
+  "source_url": "https://github.com/monkbroc"
+}
