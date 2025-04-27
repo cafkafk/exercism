@@ -1,6 +1,6 @@
 ;;; acronym.el --- Acronym (exercism)  -*- lexical-binding: t; -*-
 
-;;; Commentary:
+;;; Commentary: This will turn a string into an acronym
 
 ;;; Code:
 
