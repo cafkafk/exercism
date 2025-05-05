@@ -1,0 +1,13 @@
+[{"name":"Missed target","status":"pass","message":null,"output":null,"test_code":null,"task_id":null},
+{"name":"On the outer circle","status":"pass","message":null,"output":null,"test_code":null,"task_id":null},
+{"name":"On the middle circle","status":"pass","message":null,"output":null,"test_code":null,"task_id":null},
+{"name":"On the inner circle","status":"pass","message":null,"output":null,"test_code":null,"task_id":null},
+{"name":"Exactly on center","status":"pass","message":null,"output":null,"test_code":null,"task_id":null},
+{"name":"Near the center","status":"pass","message":null,"output":null,"test_code":null,"task_id":null},
+{"name":"Just within the inner circle","status":"pass","message":null,"output":null,"test_code":null,"task_id":null},
+{"name":"Just outside the inner circle","status":"pass","message":null,"output":null,"test_code":null,"task_id":null},
+{"name":"Just within the middle circle","status":"pass","message":null,"output":null,"test_code":null,"task_id":null},
+{"name":"Just outside the middle circle","status":"pass","message":null,"output":null,"test_code":null,"task_id":null},
+{"name":"Just within the outer circle","status":"pass","message":null,"output":null,"test_code":null,"task_id":null},
+{"name":"Just outside the outer circle","status":"pass","message":null,"output":null,"test_code":null,"task_id":null},
+{"name":"Asymmetric position between the inner and middle circles","status":"pass","message":null,"output":null,"test_code":null,"task_id":null}]
