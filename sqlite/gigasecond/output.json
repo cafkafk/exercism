@@ -1,0 +1,5 @@
+[{"name":"date only specification of time","status":"pass","message":null,"output":null,"test_code":null,"task_id":null},
+{"name":"second test for date only specification of time","status":"pass","message":null,"output":null,"test_code":null,"task_id":null},
+{"name":"third test for date only specification of time","status":"pass","message":null,"output":null,"test_code":null,"task_id":null},
+{"name":"full time specified","status":"pass","message":null,"output":null,"test_code":null,"task_id":null},
+{"name":"full time with day roll-over","status":"pass","message":null,"output":null,"test_code":null,"task_id":null}]
