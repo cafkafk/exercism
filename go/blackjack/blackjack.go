@@ -1,7 +1,5 @@
 package blackjack
 
-import "fmt"
-
 /*
 | card  | value | card    | value |
 | :---: | :---: | :-----: | :---: |
@@ -52,13 +50,7 @@ func ParseCard(card string) int {
 		return 8
 	case "nine":
 		return 9
-	case "ten":
-		return 10
-	case "jack":
-		return 10
-	case "queen":
-		return 10
-	case "king":
+	case "ten", "jack", "queen", "king":
 		return 10
 	default:
 		return 0
@@ -85,35 +77,27 @@ func ParseCard(card string) int {
 // FirstTurn returns the decision for the first turn, given two cards of the
 // player and one card of the dealer.
 func FirstTurn(card1, card2, dealerCard string) string {
-
-	// NOTE: the climate isn't doing welll. We precompute most values, should
-	// save a few cycles... Reduce, Reuse, Recycle your computations.
-	card1_value := ParseCard(card1)
-	card2_value := ParseCard(card2)
-
-	card_value := card1_value + card2_value
-
-	dealer_value := ParseCard(dealerCard)
-
-	fmt.Printf("cv1: %d, cv2: %d, cv12: %d, dv: %d\n", card1_value, card2_value, card_value, dealer_value)
+	playerScore := ParseCard(card1) + ParseCard(card2)
+	dealerScore := ParseCard(dealerCard)
 
 	switch {
-	case card1 == card2 && card1 == "ace":
+	case card1 == "ace" && card2 == "ace":
 		return "P"
-	case card_value == 21 && dealer_value < 10:
-		return "W"
-	// This triggers if dealer_value <= 10
-	case card_value == 21:
+	case playerScore == 21:
+		if dealerScore < 10 {
+			return "W"
+		}
 		return "S"
-	case card_value >= 17 && card_value <= 20:
+	case playerScore >= 17 && playerScore <= 20:
 		return "S"
-	case card_value >= 12 && card_value <= 16 && dealer_value >= 7:
-		return "H"
-	case card_value >= 12 && card_value <= 16:
+	case playerScore >= 12 && playerScore <= 16:
+		if dealerScore >= 7 {
+			return "H"
+		}
 		return "S"
-	case card_value <= 11:
+	case playerScore <= 11:
 		return "H"
 	default:
-		panic("Shouldn't happen")
+		return "S" // Should not be reached with valid inputs, but as a fallback.
 	}
 }
