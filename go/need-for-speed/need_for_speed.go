@@ -23,7 +23,6 @@ func NewCar(speed, batteryDrain int) Car {
 	}
 }
 
-// TODO: define the 'Track' type struct
 type Track struct {
 	distance int
 }
