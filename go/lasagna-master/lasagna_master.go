@@ -8,12 +8,11 @@ func PreparationTime(layers []string, avgPrep int) int {
 }
 
 func Quantities(layers []string) (noodles int, sauce float64) {
-	for i, layersLen := 0, len(layers); i < layersLen; i++ {
-		if layers[i] == "sauce" {
-			sauce = float64(layersLen) * 0.2
-		} else if layers[i] == "noodles" {
-
-			noodles = layersLen * 50
+	for _, layer := range layers {
+		if layer == "noodles" {
+			noodles += 50
+		} else if layer == "sauce" {
+			sauce += 0.2
 		}
 	}
 	return
@@ -25,13 +24,9 @@ func AddSecretIngredient(friendIngredients []string, myIngredients []string) {
 
 // TODO: define the 'ScaleRecipe()' function
 func ScaleRecipe(quantities []float64, portions int) []float64 {
-	// We make an explicit copy of quantities, to avoid changing the original,
-	// since go uses pass by reference for slices and maps.
 	amounts := make([]float64, len(quantities))
-	copy(quantities, amounts)
-
-	for i := 0; i < len(amounts); i++ {
-		amounts[0] = (amounts[0] / 2) * float64(portions)
+	for i := range quantities {
+		amounts[i] = quantities[i] / 2 * float64(portions)
 	}
 	return amounts
 }
