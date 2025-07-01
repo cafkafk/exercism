@@ -9,9 +9,10 @@ func PreparationTime(layers []string, avgPrep int) int {
 
 func Quantities(layers []string) (noodles int, sauce float64) {
 	for _, layer := range layers {
-		if layer == "noodles" {
+		switch layer {
+		case "noodles":
 			noodles += 50
-		} else if layer == "sauce" {
+		case "sauce":
 			sauce += 0.2
 		}
 	}
@@ -22,13 +23,16 @@ func AddSecretIngredient(friendIngredients []string, myIngredients []string) {
 	myIngredients[len(myIngredients)-1] = friendIngredients[len(friendIngredients)-1]
 }
 
-// TODO: define the 'ScaleRecipe()' function
+const portionsInOriginalRecipe = 2
+
 func ScaleRecipe(quantities []float64, portions int) []float64 {
-	amounts := make([]float64, len(quantities))
-	for i := range quantities {
-		amounts[i] = quantities[i] / 2 * float64(portions)
+	scaledQuantities := make([]float64, len(quantities))
+	scalingFactor := float64(portions) / portionsInOriginalRecipe
+
+	for i, quantity := range quantities {
+		scaledQuantities[i] = quantity * scalingFactor
 	}
-	return amounts
+	return scaledQuantities
 }
 
 // Your first steps could be to read through the tasks, and create
