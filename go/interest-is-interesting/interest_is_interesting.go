@@ -10,15 +10,12 @@ func InterestRate(balance float64) float32 {
 	switch {
 	case balance < 0:
 		return 3.213
-	case balance >= 0 && balance < 1000:
+	case balance < 1000:
 		return 0.5
-	case balance >= 1000 && balance < 5000:
+	case balance < 5000:
 		return 1.621
-	case balance >= 5000:
-		return 2.475
 	default:
-		// SHOULD BE UNREACHABLE
-		return 0
+		return 2.475
 	}
 }
 
@@ -34,10 +31,10 @@ func AnnualBalanceUpdate(balance float64) float64 {
 
 // YearsBeforeDesiredBalance calculates the minimum number of years required to reach the desired balance.
 func YearsBeforeDesiredBalance(balance, targetBalance float64) int {
-	var calcBalance = balance
-	var years = 0
-	for ; calcBalance < targetBalance; years++ {
-		calcBalance = AnnualBalanceUpdate(calcBalance)
+	years := 0
+	for balance < targetBalance {
+		balance = AnnualBalanceUpdate(balance)
+		years++
 	}
 	return years
 }
