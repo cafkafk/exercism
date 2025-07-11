@@ -3,7 +3,8 @@
 // A leap year (in the Gregorian calendar) occurs:
 //
 // - In every year that is evenly divisible by 4.
-// - Unless the year is evenly divisible by 100, in which case it's only a leap year if the year is also evenly divisible by 400.
+// - Unless the year is evenly divisible by 100, in which case it's only a leap
+// year if the year is also evenly divisible by 400.
 //
 // Some examples:
 //
@@ -23,9 +24,15 @@
 // operator](https://doc.rust-lang.org/book/appendix-02-operators.html) to test
 // for divisibility.
 
+// failures:
+//     year_divisible_by_100_but_not_by_3_is_still_not_a_leap_year
+//     year_divisible_by_100_not_divisible_by_400_in_common_year
+//     year_divisible_by_200_not_divisible_by_400_in_common_year
+
 pub fn is_leap_year(year: u64) -> bool {
-    match (year % 4) {
-        0 => true,
+    match year % 4 {
+        0 if year % 100 != 0 => true,
+        0 if year % 100 == 0 && year % 400 == 0 => true,
         _ => false,
     }
 }
