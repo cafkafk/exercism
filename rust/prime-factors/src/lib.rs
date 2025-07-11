@@ -39,7 +39,7 @@ pub fn factors(n: u64) -> Vec<u64> {
     // HACK: prime square optimisation
     while divisor * divisor <= num {
         while num % divisor == 0 {
-            factors.push(num);
+            factors.push(divisor);
             num /= divisor;
         }
         divisor += 1;
