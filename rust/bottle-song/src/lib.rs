@@ -57,31 +57,25 @@
 // ```
 
 pub fn recite(start_bottles: u32, take_down: u32) -> String {
-    let mut count = start_bottles;
-    let mut verse = "".to_string();
-    while count >= 1 {
-        let count_word = count.to_word();
-        let count_next = count - 1;
-        let count_next_word = count_next.to_word();
-        let bottle_word = count.to_bottle_word();
-        let bottle_next_word = count_next.to_bottle_word();
-        verse = format!(
-            "{verse}{}{}{}{}",
-            format!("{count_word} green {bottle_word} hanging on the wall,\n"),
-            format!("{count_word} green {bottle_word} hanging on the wall,\n"),
-            format!(
-                "And if {} green {bottle_word} should accidentally fall,\n",
-                count_word.to_lowercase()
-            ),
-            format!(
-                "There'll be {} green {bottle_next_word} hanging on the wall.\n\n",
-                count_next_word.to_lowercase()
-            )
-        );
-        count = count - take_down;
-    }
-    verse.into()
+    (0..take_down)
+        .map(|i| verse(start_bottles - i))
+        .collect::<Vec<String>>()
+        .join("\n\n")
 }
+
+fn verse(n: u32) -> String {
+    format!(
+        "{current_num_str} green {current_bottle_str} hanging on the wall,\n\
+         {current_num_str} green {current_bottle_str} hanging on the wall,\n\
+         And if one green bottle should accidentally fall,\n\
+         There'll be {next_num_str} green {next_bottle_str} hanging on the wall.",
+        current_num_str = n.to_word(),
+        current_bottle_str = n.to_bottle_word(),
+        next_num_str = (n - 1).to_word().to_lowercase(),
+        next_bottle_str = (n - 1).to_bottle_word()
+    )
+}
+
 
 trait ToWord {
     fn to_word(&self) -> &str;
@@ -99,12 +93,13 @@ impl ToWord for u32 {
             2 => "Two",
             3 => "Three",
             4 => "Four",
-            5 => "Zero",
-            6 => "One",
-            7 => "Two",
-            8 => "Three",
-            9 => "Four",
-            _ => todo!("Onlyy knows numbers 0-9"),
+            5 => "Five",
+            6 => "Six",
+            7 => "Seven",
+            8 => "Eight",
+            9 => "Nine",
+            10 => "Ten",
+            _ => "Only knows numbers 0-10",
         }
     }
 }
