@@ -57,17 +57,44 @@
 // ```
 
 pub fn recite(start_bottles: u32, take_down: u32) -> String {
-    start_bottles.to_word().into()
+    let mut count = start_bottles;
+    let mut verse = "".to_string();
+    while count >= 1 {
+        let count_word = count.to_word();
+        let count_next = count - 1;
+        let count_next_word = count_next.to_word();
+        let bottle_word = count.to_bottle_word();
+        let bottle_next_word = count_next.to_bottle_word();
+        verse = format!(
+            "{verse}{}{}{}{}",
+            format!("{count_word} green {bottle_word} hanging on the wall,\n"),
+            format!("{count_word} green {bottle_word} hanging on the wall,\n"),
+            format!(
+                "And if {} green {bottle_word} should accidentally fall,\n",
+                count_word.to_lowercase()
+            ),
+            format!(
+                "There'll be {} green {bottle_next_word} hanging on the wall.\n\n",
+                count_next_word.to_lowercase()
+            )
+        );
+        count = count - take_down;
+    }
+    verse.into()
 }
 
 trait ToWord {
     fn to_word(&self) -> &str;
 }
 
+trait ToBottleWord {
+    fn to_bottle_word(&self) -> &str;
+}
+
 impl ToWord for u32 {
     fn to_word(&self) -> &str {
         match *self {
-            0 => "Zero",
+            0 => "No",
             1 => "One",
             2 => "Two",
             3 => "Three",
@@ -78,6 +105,15 @@ impl ToWord for u32 {
             8 => "Three",
             9 => "Four",
             _ => todo!("Onlyy knows numbers 0-9"),
+        }
+    }
+}
+
+impl ToBottleWord for u32 {
+    fn to_bottle_word(&self) -> &str {
+        match *self {
+            1 => "bottle",
+            _ => "bottles",
         }
     }
 }
