@@ -1,4 +1,3 @@
-# ℹ Conversation checkpoint saved with tag: elixir_binary_search.
 defmodule BinarySearch do
   @doc """
     Searches for a key in the tuple using the binary search algorithm.
