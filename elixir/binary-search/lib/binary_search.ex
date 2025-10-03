@@ -36,12 +36,5 @@ defmodule BinarySearch do
   @spec search(tuple, integer) :: {:ok, integer} | :not_found
   def search(numbers, key) do
     search(numbers, key, 0, tuple_size(numbers) - 1)
-    # length = tuple_size(numbers)
-    # middle_index = div(length, 2)
-    # middle_element = elem(numbers, middle_index)
-    #
-    # cond do
-    # middle_element == key -> {:ok, key}
-    # end
   end
 end
