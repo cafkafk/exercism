@@ -35,7 +35,7 @@ defmodule GottaSnatchEmAll do
 
   @spec boring_cards([collection()]) :: [card()]
   def boring_cards(collections) do
-    # Please implement boring_cards/1
+    MapSet.to_list(MapSet.intersection(collections))
   end
 
   @spec total_cards([collection()]) :: non_neg_integer()
