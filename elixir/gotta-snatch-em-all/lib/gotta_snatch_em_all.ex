@@ -23,7 +23,7 @@ defmodule GottaSnatchEmAll do
 
   @spec remove_duplicates([card()]) :: [card()]
   def remove_duplicates(cards) do
-    # Please implement remove_duplicates/1
+    MapSet.to_list(MapSet.new(cards))
   end
 
   @spec extra_cards(collection(), collection()) :: non_neg_integer()
