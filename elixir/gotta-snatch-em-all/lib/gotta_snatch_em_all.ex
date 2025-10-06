@@ -28,7 +28,9 @@ defmodule GottaSnatchEmAll do
 
   @spec extra_cards(collection(), collection()) :: non_neg_integer()
   def extra_cards(your_collection, their_collection) do
-    # Please implement extra_cards/2
+    length(
+      MapSet.to_list(MapSet.difference(MapSet.new(your_collection), MapSet.new(their_collection)))
+    )
   end
 
   @spec boring_cards([collection()]) :: [card()]
