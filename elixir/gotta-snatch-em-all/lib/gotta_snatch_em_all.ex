@@ -40,7 +40,10 @@ defmodule GottaSnatchEmAll do
 
   @spec total_cards([collection()]) :: non_neg_integer()
   def total_cards(collections) do
-    # Please implement total_cards/1
+    Enum.reduce(collections, MapSet.new(), fn current_collection, acc ->
+      MapSet.union(acc, current_collection)
+    end)
+    |> MapSet.size()
   end
 
   @spec split_shiny_cards(collection()) :: {[card()], [card()]}
