@@ -48,6 +48,15 @@ defmodule GottaSnatchEmAll do
 
   @spec split_shiny_cards(collection()) :: {[card()], [card()]}
   def split_shiny_cards(collection) do
-    # Please implement split_shiny_cards/1
+    {shiny, normal} =
+      Enum.reduce(collection, {[], []}, fn card, {shiny, normal} ->
+        if String.starts_with?(card, "Shiny ") do
+          {[card | shiny], normal}
+        else
+          {shiny, [card | normal]}
+        end
+      end)
+
+    {Enum.sort(shiny), Enum.sort(normal)}
   end
 end
