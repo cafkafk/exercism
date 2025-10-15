@@ -34,8 +34,10 @@ defmodule GottaSnatchEmAll do
   end
 
   @spec boring_cards([collection()]) :: [card()]
-  def boring_cards(collections) do
-    MapSet.to_list(MapSet.intersection(collections))
+  def boring_cards([]), do: []
+
+  def boring_cards([head | tail]) do
+    Enum.reduce(tail, head, &MapSet.intersection/2) |> MapSet.to_list()
   end
 
   @spec total_cards([collection()]) :: non_neg_integer()
